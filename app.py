@@ -15,7 +15,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.title("🔬 BioProcess Excursion Monitor")
 st.markdown(
     "Exploratory detection of process excursions using causal dynamic bands. "
     "This dashboard is not a validated control or safety system."
