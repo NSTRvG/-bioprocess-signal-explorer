@@ -1,0 +1,155 @@
+{
+  "generated_at_utc": "2026-11-11T23:55:06.915230+00:00",
+  "synthetic": {
+    "data": "repository-generated synthetic batch",
+    "ground_truth": "injected synthetic anomaly intervals",
+    "detector_config": {
+      "window": "60min",
+      "k": 3.0,
+      "min_periods": 10,
+      "method": "robust"
+    },
+    "data_validation": {
+      "n_rows": 2160,
+      "n_columns": 4,
+      "columns": [
+        "pH",
+        "DO",
+        "temperature",
+        "biomass"
+      ],
+      "time_range": {
+        "start": "2024-01-01 00:00:00+00:00",
+        "end": "2024-01-08 11:55:00+00:00",
+        "duration_hours": 179.91666666666666
+      },
+      "missing_values": {
+        "pH": 0,
+        "DO": 0,
+        "temperature": 0,
+        "biomass": 0
+      },
+      "missing_percentage": {
+        "pH": 0.0,
+        "DO": 0.0,
+        "temperature": 0.0,
+        "biomass": 0.0
+      }
+    },
+    "by_variable": {
+      "pH": {
+        "sample_count": 2160,
+        "labeled_anomaly_intervals": 1,
+        "labeled_anomaly_samples": 6,
+        "outlier_samples": 139,
+        "outliers_inside_labels": 6,
+        "outliers_outside_labels": 133,
+        "labeled_sample_coverage": 1.0,
+        "events": 23,
+        "events_overlapping_labels": 1
+      },
+      "DO": {
+        "sample_count": 2160,
+        "labeled_anomaly_intervals": 1,
+        "labeled_anomaly_samples": 30,
+        "outlier_samples": 88,
+        "outliers_inside_labels": 5,
+        "outliers_outside_labels": 83,
+        "labeled_sample_coverage": 0.166667,
+        "events": 11,
+        "events_overlapping_labels": 1
+      },
+      "temperature": {
+        "sample_count": 2160,
+        "labeled_anomaly_intervals": 1,
+        "labeled_anomaly_samples": 120,
+        "outlier_samples": 95,
+        "outliers_inside_labels": 6,
+        "outliers_outside_labels": 89,
+        "labeled_sample_coverage": 0.05,
+        "events": 13,
+        "events_overlapping_labels": 1
+      },
+      "biomass": {
+        "sample_count": 2160,
+        "labeled_anomaly_intervals": 0,
+        "labeled_anomaly_samples": 0,
+        "outlier_samples": 115,
+        "outliers_inside_labels": 0,
+        "outliers_outside_labels": 115,
+        "labeled_sample_coverage": null,
+        "events": 21,
+        "events_overlapping_labels": 0
+      }
+    },
+    "interpretation": "Coverage measures whether outlier points fall inside injected intervals; it is not a false-alarm-adjusted accuracy score."
+  },
+  "indpensim": {
+    "data": "published IndPenSim benchmark sample",
+    "source": {
+      "doi": "10.17632/npt257bjxn.1",
+      "version": 1,
+      "batch_reference": 95,
+      "license": "CC BY 4.0",
+      "simulation_generated": true,
+      "source_rows": 1055,
+      "fault_reference_positive_rows": 188
+    },
+    "detector_config": {
+      "window": "180min",
+      "k": 3.0,
+      "min_periods": 10,
+      "method": "robust",
+      "event_gap_minutes": 15
+    },
+    "data_validation": {
+      "n_rows": 1055,
+      "n_columns": 3,
+      "columns": [
+        "pH",
+        "DO_mg_L",
+        "temperature_K"
+      ],
+      "time_range": {
+        "start": "2000-01-01 00:12:00+00:00",
+        "end": "2000-01-09 19:00:00+00:00",
+        "duration_hours": 210.8
+      },
+      "missing_values": {
+        "pH": 0,
+        "DO_mg_L": 0,
+        "temperature_K": 0
+      },
+      "missing_percentage": {
+        "pH": 0.0,
+        "DO_mg_L": 0.0,
+        "temperature_K": 0.0
+      }
+    },
+    "cadence_minutes_median": 12.0,
+    "outliers_by_variable": {
+      "pH": {
+        "outlier_samples": 64,
+        "events": 14
+      },
+      "DO_mg_L": {
+        "outlier_samples": 173,
+        "events": 48
+      },
+      "temperature_K": {
+        "outlier_samples": 89,
+        "events": 34
+      }
+    },
+    "union_outliers_vs_process_fault_reference": {
+      "true_positive": 48,
+      "false_positive": 223,
+      "false_negative": 140,
+      "true_negative": 644,
+      "precision": 0.177122,
+      "recall": 0.255319,
+      "f1": 0.20915
+    },
+    "interpretation": "Fault reference is a process-level simulator label, not a variable-specific ground truth. This exploratory pointwise comparison does not establish detector accuracy or production readiness."
+  }
+}

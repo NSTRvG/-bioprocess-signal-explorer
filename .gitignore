@@ -1,0 +1,38 @@
+# Large source datasets
+data/full/
+
+# CSV data (keep small generated/sample files)
+*.csv
+!data/sample/*.csv
+!data/synthetic/*.csv
+
+# Python
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Environments and secrets
+venv/
+.env/
+.env
+.env.*
+!.env.example
+.venv/
+.streamlit/secrets.toml
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

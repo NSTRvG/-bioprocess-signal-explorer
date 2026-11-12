@@ -1,0 +1,4 @@
+event_id,variable,type,start_hour,end_hour,magnitude,description
+1,pH,spike,120.0,120.5,0.8,Synthetic transient base-pump fault
+2,DO,step_down,50.0,52.5,-15.0,Synthetic increased oxygen demand
+3,temperature,drift,80.0,90.0,1.2,Synthetic partial temperature-control fault

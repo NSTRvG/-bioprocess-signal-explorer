@@ -1,0 +1,42 @@
+{
+  "source": "Mendeley Data",
+  "dataset_id": "npt257bjxn",
+  "dataset_version": 1,
+  "doi": "10.17632/npt257bjxn.1",
+  "simulation_generated": true,
+  "source_file": "100_Batches_IndPenSim_V3.csv",
+  "source_file_id": "548d36e5-c3b4-4c4d-acf0-4876780c5019",
+  "source_file_size_bytes": 2566827626,
+  "source_file_sha256_from_provider": "169d32b7bb377179555f8d264143f8816ec4751ed1742c66bd873991e9b8e6d9",
+  "source_file_sha256_verified_locally": false,
+  "license": "CC BY 4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0",
+  "sample_batch_reference": 95,
+  "sample_rows": 1055,
+  "sample_time_start_h": 0.2,
+  "sample_time_end_h": 211.0,
+  "fault_reference_positive_rows": 188,
+  "range_requests_for_lookup": 27,
+  "retrieval_endpoints": {
+    "metadata": "https://data.mendeley.com/api/datasets-v2/datasets/npt257bjxn?version=1&fields=articles.*",
+    "file_listing": "https://data.mendeley.com/public-api/datasets/npt257bjxn/files?folder_id=root&version=1&$start=0&$limit=1000",
+    "file_listing_records_returned": 2,
+    "file_matches_for_source_csv": 1,
+    "byte_range_download": "https://data.mendeley.com/public-files/datasets/npt257bjxn/files/548d36e5-c3b4-4c4d-acf0-4876780c5019/file_downloaded"
+  },
+  "retrieved_full_source": false,
+  "accessed_at_utc": "2026-11-11T03:51:48.890116+00:00",
+  "transformations": [
+    "Selected one batch by the Batch reference field.",
+    "The original source describes IndPenSim as a mathematical simulation, not observed plant measurements.",
+    "Kept pH, dissolved oxygen concentration, and temperature plus a separate fault-label file.",
+    "Mapped two obsolete header fields absent from the source data rows.",
+    "Converted elapsed process hours to UTC timestamps anchored at 2000-01-01; these are not calendar measurement dates.",
+    "Preserved temperature in kelvin and dissolved oxygen in mg/L."
+  ],
+  "attribution": "Goldrick, S.; Jankauskas, K.; Lennox, B.; Farid, S.; Lovett, D.; Duran-Villalobos, C. A. Data for: Modern day monitoring and control challenges outlined on an industrial-scale benchmark fermentation process. Mendeley Data, version 1. https://doi.org/10.17632/npt257bjxn.1",
+  "sample_sha256": {
+    "indpensim_batch_095.csv": "5b9c59255d0256a77f6115dab3a62a2e47c9c97b143fbb668f8a6acefda95e8c",
+    "indpensim_batch_095_ground_truth.csv": "87f9787283ce3c43752a6d64baa6397ac0b8e44ffa37f4da0d7289097a1966e2"
+  }
+}
