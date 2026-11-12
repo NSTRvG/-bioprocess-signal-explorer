@@ -1,3 +1,20 @@
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_red.svg)](https://u9tl6rxihbkduewnmpfm7c.streamlit.app/)
+
+## 🚀 Live Demo
+
+Try the live application right in your browser without installing anything:
+
+**👉 [Open BioProcess Excursion Monitor](https://u9tl6rxihbkduewnmpfm7c.streamlit.app/)**
+
+### Key Features
+
+- 🔬 Excursion detection using causal statistical bands
+- 📊 Interactive multivariate time-series analysis
+- ⚙️ Fully adjustable detection parameters
+- 📥 Custom CSV upload support
+- 🎯 Critical event and severity visualization
+
+---
 # BioProcess Excursion Monitor
 
 **A portfolio project for exploring bioprocess signals and making unusual patterns easier to inspect.**
