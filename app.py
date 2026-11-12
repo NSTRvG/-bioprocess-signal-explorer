@@ -1,15 +1,65 @@
-"""Streamlit dashboard for bioprocess excursion detection."""
-
-from pathlib import Path
-
-import pandas as pd
 import streamlit as st
+import pandas as pd
+import numpy as np
+import plotly.express as px
+from pathlib import Path
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+MAX_UPLOAD_BYTES = 50 * 1024 * 1024
+
+st.set_page_config(
+    page_title="BioProcess Excursion Monitor",
+    page_icon="🔬",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+st.title("🔬 BioProcess Excursion Monitor")
+st.markdown(
+    "Exploratory detection of process excursions using causal dynamic bands. "
+    "This dashboard is not a validated control or safety system."
+)
+
+# ============================================
+# AUTO-GENERATE DATA ON FIRST RUN (Cloud Deploy)
+# ============================================
+SYNTHETIC_PATH = PROJECT_ROOT / "data" / "synthetic" / "synthetic_batch.csv"
+
+if not SYNTHETIC_PATH.exists():
+    st.info("🔄 Generating synthetic data for first run...")
+    
+    # Guardar los argumentos originales de Streamlit
+    original_argv = sys.argv.copy()
+    
+    try:
+        # Limpiar sys.argv para que argparse no vea argumentos de Streamlit
+        sys.argv = [str(PROJECT_ROOT / "scripts" / "generate_synthetic.py")]
+        
+        # Importar y ejecutar la función de generación
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from scripts.generate_synthetic import main as generate_synthetic
+        
+        # Llamar a main() sin argumentos (usará los valores por defecto)
+        generate_synthetic()
+        
+        # Restaurar los argumentos originales
+        sys.argv = original_argv
+        
+        st.success("✅ Synthetic data generated successfully!")
+        st.rerun()  # Recargar la app con los nuevos datos
+        
+    except Exception as e:
+        # Restaurar argv incluso si hay error
+        sys.argv = original_argv
+        st.error(f"❌ Error generating data: {e}")
+        st.stop()
+
 
 from src.detector import detect_excursions
 from src.models import DetectionConfig, DetectionMethod, Severity
 from src.preprocessing import load_and_preprocess, validate_data
 from src.viz import create_band_chart, create_events_table
-
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 MAX_UPLOAD_BYTES = 50 * 1024 * 1024
